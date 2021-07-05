@@ -7,10 +7,17 @@ const catchError = async (ctx,next)=>{
         if(error instanceof HttpException){
             ctx.body = {
                 msg: error.msg,
-                errorCode: error.errorCode,
-                requestUrl: `${ctx.method} ${ctx.path}`,
-                status: error.status          
+                error_code: error.errorCode,
+                request: `${ctx.method} ${ctx.path}`,        
+            } 
+            ctx.status= error.code  
+        }else{
+            ctx.body = {
+                msg: '糟糕出了个问题',
+                error_code: 999,
+                request: `${ctx.method} ${ctx.path}`
             }
+            ctx.status = 500
         }
     }
 }

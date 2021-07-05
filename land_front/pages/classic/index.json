@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "m-like":"/components/Like/Like"
+  }
+}

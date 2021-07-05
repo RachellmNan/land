@@ -1,13 +1,40 @@
 {
-  "pages":[
-    "pages/index/index",
-    "pages/logs/logs"
+  "pages": [
+    "pages/classic/index",
+    "pages/book/index",
+    "pages/my/index"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "backgroundColor": "#fff",
+    "borderStyle": "white",
+    "selectedColor": "#000",
+    "color": "#c7c7c7",
+    "list": [
+      {
+        "text": "流行",
+        "pagePath": "pages/classic/index",
+        "iconPath": "assets/classic.png",
+        "selectedIconPath": "assets/classic@highlight.png"
+      },
+      {
+        "text": "书单",
+        "pagePath": "pages/book/index",
+        "iconPath": "assets/book.png",
+        "selectedIconPath": "assets/book@highlight.png"
+      },
+      {
+        "text": "喜欢",
+        "pagePath": "pages/my/index",
+        "iconPath": "assets/my.png",
+        "selectedIconPath": "assets/my@highlight.png"
+      }
+    ]
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

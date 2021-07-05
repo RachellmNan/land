@@ -1,9 +1,9 @@
 class HttpException extends Error{
-    constructor(msg = '服务器异常', errorCode = 10000, status = 400){
+    constructor(msg = '服务器异常', errorCode = 10000, code = 400){
         super()
         this.msg = msg
         this.errorCode = errorCode
-        this.status = status
+        this.code = code
     }
 }
 
@@ -12,7 +12,7 @@ class ParameterException extends HttpException{
         super()
         this.msg = msg || '参数错误'
         this.errorCode = errorCode || 10000
-        this.status = 400
+        this.code = 400
     }
 }
 
