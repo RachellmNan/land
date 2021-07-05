@@ -10,5 +10,5 @@ app.use(bodyParser())
 // 路由的自动注册
 InitManager.init(app)
 
-
+//test
 app.listen(3000)
