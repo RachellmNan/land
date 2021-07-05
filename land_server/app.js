@@ -9,6 +9,5 @@ app.use(catchError)
 app.use(bodyParser())
 // 路由的自动注册
 InitManager.init(app)
-
-//test
+// test 封装sss
 app.listen(3000)
