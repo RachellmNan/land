@@ -1,2 +1,5 @@
 
 land_server/node_modules
+land_server/config/configs.js
+server_test/node_modules
+server_test/miniprogram_npm

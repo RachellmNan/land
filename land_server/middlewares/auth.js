@@ -1,5 +1,5 @@
 const basicAuth = require('basic-auth')
-const config = require('../config/config')
+const config = require('../config/configs')
 const jwt = require('jsonwebtoken')
 const { Forbidden } = require('../core/http-exception')
 
@@ -12,6 +12,7 @@ class Auth {
     static SUPER_ADMIN = 32 // 超级管理员的级别
     get verify(){
         return async (ctx,next)=>{
+            // 获取到http中的Auth
             const AuthObj = basicAuth(ctx.req)
             let decode
             let errMsg = 'token不合法'
@@ -35,6 +36,15 @@ class Auth {
                 scope: decode.scope
             }
             await next()
+        }
+    }
+    static verifyTøken(token){
+        try {
+            jwt.verify(token, config.security.secretKey)
+            return true
+        } catch (error) {
+            console.log(2)
+            return false            
         }
     }
 }

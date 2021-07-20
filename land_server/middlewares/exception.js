@@ -6,12 +6,12 @@ const catchError = async (ctx,next)=>{
     } catch (error) {
         const isDev = global.config.enviroment == 'dev'
         const isHttpException = error instanceof HttpException
-        // 在开发环境 or 自定义错误
+        // 在开发环境 or 自定义错误 可以在编译器中显示错误
         if(isDev && !isHttpException){
             throw error
         } 
         if(isHttpException){
-            ctx.body = {
+            ctx.body = { 
                 msg: error.msg,
                 error_code: error.errorCode,
                 request: `${ctx.method} ${ctx.path}`,        

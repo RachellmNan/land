@@ -14,6 +14,7 @@ const UserSchama = new mongoose.Schema({
     },
     email: String,
     openid: String,
+    session_key:String,
     meta: getMeta()
 })
 UserSchama.pre('save',preSave)

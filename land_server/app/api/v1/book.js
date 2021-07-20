@@ -4,7 +4,7 @@ const validator = require('validator');
 const Auth = require('../../../middlewares/auth');
 const router = new Router()
 
-router.post('/v1/book',new Auth(Auth.ADMIN).verify, (ctx,next)=>{
+router.post('/v1/book',new Auth(Auth.USER).verify, (ctx,next)=>{
 
     // console.log('this is book')
     // const params = ctx.params

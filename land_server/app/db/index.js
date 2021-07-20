@@ -7,6 +7,33 @@ dirs.forEach(file=>{
     require(`${__dirname}/Schemas/${file}`)
 })
 
+const MovieModel = mongoose.model('Movie')
+const MusicModel = mongoose.model('Music')
+const SentenceModel = mongoose.model('Sentence')
+
+async function getData(art_id, type) {
+    let art
+    const finder = {
+        id: art_id
+    }
+    switch (type) {
+        case 100:
+            art = MovieModel.findOne(finder)
+            break;
+        case 200:
+            art = MusicModel.findOne(finder)
+            break;
+        case 300:
+            art = SentenceModel.findOne(finder)
+            break;
+        case 400:
+            break;
+        default:
+            break;
+    }
+    return art
+}
+
 const connect = () => {
     return new Promise((resolve)=>{
         // 连接数据库
@@ -20,6 +47,7 @@ const connect = () => {
 }
 
 module.exports = {
-    connect
+    connect,
+    getData
 }
 

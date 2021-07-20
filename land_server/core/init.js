@@ -4,9 +4,10 @@ const requireDirectory = require('require-directory')
 class InitManager{
     static init(app){
         this.app = app
-        this._loadModules(app)
+        this._loadRoutes(app)
+        this._loadConfig()
     }
-    static _loadModules(app){
+    static _loadRoutes(app){
         function whenLoadModules(module){
             if(module instanceof Router){
                 app.use(module.routes())
@@ -17,6 +18,11 @@ class InitManager{
         requireDirectory(module, apiDirectory, {
             visit:whenLoadModules
         })
+    }
+    static _loadConfig(path=''){
+        const configPath = path || process.cwd() + '/config/configs.js'
+        const config = require(configPath)
+        global.config = config
     }
 }
 

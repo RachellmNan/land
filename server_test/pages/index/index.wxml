@@ -1,0 +1,6 @@
+<!--index.wxml-->
+<view class="container">
+  <l-button bind:lintap="onGetToken">获取Token</l-button>
+  <l-button bind:lintap="onVerifyToken">验证Token</l-button>
+  <l-button bind:lintap="onGetLatest">获取最新期刊</l-button>
+</view>

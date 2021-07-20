@@ -7,6 +7,10 @@ const getMeta = ()=>{
         updatedAt:{
             type:Number,
             default:(new Date()).getTime()
+        },
+        deletedAt:{
+            type: Number,
+            default: null
         }
     }
 }
