@@ -8,6 +8,10 @@ const catchError = async (ctx,next)=>{
         const isHttpException = error instanceof HttpException
         // 在开发环境 or 自定义错误 可以在编译器中显示错误
         if(isDev && !isHttpException){
+            if(!isHttpException){
+                console.log(111)
+            }
+            console.log(22)
             throw error
         } 
         if(isHttpException){

@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const { preSave } = require('../helpers')
 
 const FavorSchema = new mongoose.Schema({
-    uid: String,
+    uid: String ,
     art_id: String,
     type: Number
 })

@@ -52,7 +52,7 @@ router.post('/', async (ctx)=>{
 
 router.post('/verify', async (ctx)=>{
     const { token } = ctx.request.body
-    const result =  Auth.verifyTøken(token)
+    const result =  Auth.verifyToken(token)
     ctx.body = {
         is_valid : result
     }

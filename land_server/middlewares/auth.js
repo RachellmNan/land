@@ -38,12 +38,11 @@ class Auth {
             await next()
         }
     }
-    static verifyTøken(token){
+    static verifyToken(token){
         try {
             jwt.verify(token, config.security.secretKey)
             return true
         } catch (error) {
-            console.log(2)
             return false            
         }
     }

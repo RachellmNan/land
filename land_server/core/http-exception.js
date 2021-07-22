@@ -43,7 +43,7 @@ class Forbidden extends HttpException {
     }
 }
 
-class linkError extends HttpException {
+class likeError extends HttpException {
     constructor(msg, errorCode) {
         super()
         this.status = 400
@@ -67,6 +67,6 @@ module.exports = {
     NotFound,
     AuthFailed,
     Forbidden,
-    linkError,
+    likeError,
     DislikeError
 }

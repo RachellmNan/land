@@ -3,39 +3,35 @@
     <head>
         <meta charset="UTF-8"></meta>
         <style>
-            .fa{
-                width: 400px;
-                height: 400px;
-                background-color: pink;
-                line-height: 50px;
-                position: relative;
-            }
-            .child{
-                position: absolute;
-                background-color: goldenrod;
-                top: 0;
-                bottom: 0;
-                left: 25%;
-                right: 25%;
-
-            }
-            .title{
+            /* .wrapper{
+                line-height: 32px;
+                font-size: 24px;
+            } */
+            span{
                 display: inline-block;
-                width: 30px;
-                height: 1ex;
-                background-color: yellow;
+                width: 150px;
+                height: 150px;
+                background-color: tomato;
+                border: 1px solid yellowgreen;
+                color: white;
             }
-            .test{
-                font-size: 20px;
+            span:nth-of-type(1){
+                /* overflow: hidden; */
+            }
+            span:nth-of-type(2){
+                /* overflow: hidden; */
             }
         </style>
     </head>
     <body>
-        <div class="fa">
-            <div class="child">
-                x<span class="test">this is spanx</span>
+        <div class="wrapper">
+            <span>
+                <div style="width: 100px;height: 100px;background-color: yellowgreen;"></div>
+            </span>
+            <div class="tt" style="width: 300px;height: 300px; position: fixed;background-color:aqua;">
+                <a href="" style="position:fixed;background-color: yellowgreen;left: 0;right: 0;">sss</a>
             </div>
-           
+            <span> this is s </span>
         </div>
     </body>
 </html>
