@@ -45,10 +45,10 @@ Page({
   },
   onGetLatest(){
     wx.request({
-      url: 'http://localhost:3000/latest',
+      url: 'http://localhost:3000/v1/classic/latest',
       method:'GET',
       success(res){
-        console.log(res.data)
+        console.log(res)
       },
       header:{
         Authorization: this._encode()
@@ -81,9 +81,69 @@ Page({
       url: 'http://localhost:3000/v1/dislike',
       method:'POST',
       data:{
-        art_id: 1,
+        art_id: 3,
         type: 100
       },
+      success(res){
+        console.log(res.data)
+      },
+      header:{
+        Authorization: this._encode()
+      }
+    })
+  },
+  onGetPrevious(){
+    wx.request({
+      url: `http://localhost:3000/v1/classic/2/previous`,
+      method:'POST',
+      success(res){
+        console.log(res)
+      },
+      header:{
+        Authorization: this._encode()
+      }
+    })
+  },
+  onGetNext(){
+    wx.request({
+      url: `http://localhost:3000/v1/classic/4/next`,
+      method:'POST',
+      success(res){
+        console.log(res)
+      },
+      header:{
+        Authorization: this._encode()
+      }
+    })
+  },
+  onGetLike(){
+    wx.request({
+      url: `http://localhost:3000/v1/classic/300/1/favor`,
+      method:'POST',
+      success(res){
+        console.log(res.data)
+      },
+      header:{
+        Authorization: this._encode()
+      }
+    })
+  },
+  onGetMyLike(){
+    wx.request({
+      url: `http://localhost:3000/v1/classic/favor`,
+      method:'GET',
+      success(res){
+        console.log(res.data)
+      },
+      header:{
+        Authorization: this._encode()
+      }
+    })
+  },
+  onGetDetail(){
+    wx.request({
+      url: `http://localhost:3000/v1/classic/100/2`,
+      method:'GET',
       success(res){
         console.log(res.data)
       },

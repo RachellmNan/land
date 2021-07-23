@@ -5,4 +5,9 @@
   <l-button bind:lintap="onGetLatest">获取最新期刊</l-button>
   <l-button bind:lintap="onLike">点赞</l-button>
   <l-button bind:lintap="onDisLike">取消点赞</l-button>
+  <l-button bind:lintap="onGetPrevious" >获取期刊上一期</l-button>
+  <l-button bind:lintap="onGetNext">获取期刊下一期</l-button>
+  <l-button bind:lintap="onGetLike">获取点赞信息</l-button>
+  <l-button bind:lintap="onGetMyLike">获取我喜欢的</l-button>
+  <l-button bind:lintap="onGetDetail">获取期刊详情</l-button>
 </view>

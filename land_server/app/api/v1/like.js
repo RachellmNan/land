@@ -13,15 +13,21 @@ const router = new Router({
 router.post('/like', new Auth(Auth.USER).verify ,async (ctx,next)=>{
     let {type, art_id} = ctx.request.body
     let res = await FavorModel.findOne({
-        uid: ctx.auth.uid
+        uid: ctx.auth.uid,
+        type,
+        art_id
     })  
     if(!res){
+        let res = await getData(art_id, type)
+        if(!res){
+            throw new ParameterException()
+        }
         await FavorModel.create({
             uid:ctx.auth.uid,
             type,
             art_id
         })
-        let res = await getData(art_id, type)
+        
         res.fav_nums++
         await res.save()
 
@@ -37,13 +43,20 @@ router.post('/like', new Auth(Auth.USER).verify ,async (ctx,next)=>{
 router.post('/dislike', new Auth(Auth.USER).verify ,async (ctx,next)=>{
     let {type, art_id} = ctx.request.body
     let res = await FavorModel.findOne({
-        uid: ctx.auth.uid
+        uid: ctx.auth.uid,
+        type,
+        art_id
     })  
     if(res){
-        await FavorModel.deleteOne({
-            uid: ctx.auth.uid
-        })
         let result = await getData(art_id, type)
+        if(!result){
+            throw new ParameterException()
+        }
+        await FavorModel.deleteOne({
+            uid: ctx.auth.uid,
+            type,
+            art_id
+        })
         result.fav_nums--
         await result.save()
 
@@ -53,7 +66,7 @@ router.post('/dislike', new Auth(Auth.USER).verify ,async (ctx,next)=>{
         }
         return 
     }
-    throw new DislikeError() 
+    throw new DislikeError('取消点赞参数错误') 
 })
 
 module.exports = router
