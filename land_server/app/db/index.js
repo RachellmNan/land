@@ -18,13 +18,13 @@ async function getData(art_id, type) {
     }
     switch (type) {
         case 100:
-            art = MovieModel.findOne(finder)
+            art = await MovieModel.findOne(finder)
             break;
         case 200:
-            art = MusicModel.findOne(finder)
+            art = await MusicModel.findOne(finder)
             break;
         case 300:
-            art = SentenceModel.findOne(finder)
+            art = await SentenceModel.findOne(finder)
             break;
         case 400:
             break;

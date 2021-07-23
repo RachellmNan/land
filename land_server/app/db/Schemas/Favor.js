@@ -1,10 +1,11 @@
 const mongoose = require('mongoose')
-const { preSave } = require('../helpers')
+const { preSave, getMeta } = require('../helpers')
 
 const FavorSchema = new mongoose.Schema({
-    uid: String ,
-    art_id: String,
-    type: Number
+    uid: String,
+    art_id: Number,
+    type: Number,
+    meta: getMeta()
 })
 
 FavorSchema.pre('save',preSave);

@@ -1,7 +1,9 @@
 const basicAuth = require('basic-auth')
 const config = require('../config/configs')
 const jwt = require('jsonwebtoken')
-const { Forbidden } = require('../core/http-exception')
+const { Forbidden, AuthFailed } = require('../core/http-exception')
+const mongoose = require('mongoose')
+const UserModel = mongoose.model('User')
 
 class Auth {
     constructor(level){
@@ -25,6 +27,7 @@ class Auth {
                 if(error.name == 'TokenExpiredError'){
                     errMsg = 'token已过期'
                 }
+                // token错误或其他错误
                 throw new Forbidden(errMsg)
             }
             // 该用户的权限是否能访问该 api

@@ -3,4 +3,6 @@
   <l-button bind:lintap="onGetToken">获取Token</l-button>
   <l-button bind:lintap="onVerifyToken">验证Token</l-button>
   <l-button bind:lintap="onGetLatest">获取最新期刊</l-button>
+  <l-button bind:lintap="onLike">点赞</l-button>
+  <l-button bind:lintap="onDisLike">取消点赞</l-button>
 </view>
