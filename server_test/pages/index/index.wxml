@@ -10,4 +10,5 @@
   <l-button bind:lintap="onGetLike">获取点赞信息</l-button>
   <l-button bind:lintap="onGetMyLike">获取我喜欢的</l-button>
   <l-button bind:lintap="onGetDetail">获取期刊详情</l-button>
+  <l-button bind:lintap="onGetHotBook">热门书籍</l-button>
 </view>

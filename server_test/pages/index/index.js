@@ -151,5 +151,17 @@ Page({
         Authorization: this._encode()
       }
     })
+  },
+  onGetHotBook(){
+    wx.request({
+      url: `http://localhost:3000/v1/book/hot_list`,
+      method:'POST',
+      success(res){
+        console.log(res.data)
+      },
+      header:{
+        Authorization: this._encode()
+      }
+    })
   }
 })

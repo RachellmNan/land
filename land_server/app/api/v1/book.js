@@ -1,20 +1,18 @@
 const Router = require('koa-router')
 const {HttpException, ParameterException} = require('../../../core/http-exception')
 const validator = require('validator'); 
+const mongoose = require('mongoose')
 const Auth = require('../../../middlewares/auth');
-const router = new Router()
+const HotBookModel = mongoose.model('HotBook')
+const router = new Router({
+    prefix:'/v1/book'
+})
 
-router.post('/v1/book',new Auth(Auth.USER).verify, (ctx,next)=>{
-
-    // console.log('this is book')
-    // const params = ctx.params
-    // const query = ctx.query
-    // const header = ctx.header
-    // const body = ctx.request.body
-    // if(!validator.isInt(params.id, {min:1})){
-    //     throw new ParameterException()
-    // }
-    ctx.body = ctx.auth
+router.post('/hot_list',new Auth(Auth.USER).verify, async (ctx,next)=>{
+    let res =  await HotBookModel.create({
+        index:999
+    })
+    ctx.body = res
 })
 
 
