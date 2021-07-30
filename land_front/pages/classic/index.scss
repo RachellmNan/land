@@ -1,0 +1,51 @@
+.container{
+    .header-wrapper{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100rpx;
+        border-top: 1rpx solid tomato;
+        border-bottom: 1rpx solid tomato;
+        .info-exhibition{
+            padding-left: 30rpx;
+            font-size: 24rpx;
+            display: flex;
+            line-height: 40rpx;
+            overflow: hidden;
+            position: relative;
+            .serial-wrapper{
+                display: inline-block;
+                align-items: baseline;
+                height: 40rpx;
+                margin-right: 10rpx;
+                .index{
+                    font-size: 50rpx;
+                }
+                .line{
+                    display: inline-block;
+                    height: 38rpx;
+                    border-right: 1rpx solid black;
+                    margin-left: 4rpx;
+                }
+            }
+            .date-wrapper{
+               display: inline-block;
+               text-align: center;
+               text{
+                   display: block;
+                   line-height: 20rpx;
+               }
+            }
+        }
+        .option-wrapper{
+            display: flex;
+            min-width: 220rpx;
+            align-items: center;
+            justify-content: center;
+            > image{
+                width: 28rpx;
+                height: 28rpx;
+            }
+        }
+    }
+}

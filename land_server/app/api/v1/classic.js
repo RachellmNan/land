@@ -4,7 +4,6 @@ const FlowModel = mongoose.model('Flow')
 const FavorModel = mongoose.model('Favor')
 const Auth = require('../../../middlewares/auth');
 const { getData } = require('../../db');
-const { routes } = require('./insert');
 
 const router = new Router({
     prefix:'/v1/classic'
@@ -99,6 +98,29 @@ router.get('/:type/:id', async (ctx, next)=>{
     let res = await getData(id, parseInt(type))
     console.log('res: ',res)
     ctx.body = res
+})
+
+const path = require('path')
+const fs = require('fs');
+const mime = require('mime-types')
+router.get('/png', new Auth(Auth.USER).verify, async (ctx)=>{
+    let filePath = path.join(process.cwd(), '/static/images/movie4.png')
+    console.log('filePath', filePath)
+    let file
+    try {
+	    file = fs.readFileSync(filePath); //读取文件
+        console.log('file',file)
+	} catch (error) {
+		//如果服务器不存在请求的图片，返回默认图片
+	    // filePath = path.join(__dirname, '/images/default.png'); //默认图片地址
+	    file = fs.readFileSync(filePath); //读取文件	  
+        console.log(222)  
+	}
+    let mimeType = mime.lookup(filePath); //读取图片文件类型
+    console.log(333)
+    console.log('minmeType',mimeType)
+	ctx.set('content-type', mimeType); //设置返回类型
+	ctx.body = file; //返回图片
 })
 
 module.exports = router  

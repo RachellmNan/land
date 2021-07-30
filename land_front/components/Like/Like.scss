@@ -1,15 +1,17 @@
 .container{
     position: relative;
+    padding: 10rpx;
+    display: inline-block;
+    min-width: 60rpx;
     image{
         width: 32rpx;
         height: 28rpx;
     }
     .count{
-        position: absolute;
-        display: inline-block;
+        position: relative;
         font-size: 20rpx;
-        top: -10rpx;
-        right: -20rpx;
+        right: -8rpx;
+        top: -28rpx;
         color: #c9c9c9;
     }
 }

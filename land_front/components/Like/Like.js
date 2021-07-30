@@ -6,7 +6,7 @@ Component({
   properties: {
     count:{
       type:Number,
-      value:0
+      value:1
     }
   },
 
@@ -24,7 +24,7 @@ Component({
     add(){
       
       this.setData({
-        count:++this.data.count
+        count:this.data.count * 10
       })
       console.log(this.data)
     }

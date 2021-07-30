@@ -11,4 +11,6 @@
   <l-button bind:lintap="onGetMyLike">获取我喜欢的</l-button>
   <l-button bind:lintap="onGetDetail">获取期刊详情</l-button>
   <l-button bind:lintap="onGetHotBook">热门书籍</l-button>
+  <l-button bind:lintap="onGetImg"> 获取图片</l-button>
+  <image src="http://localhost:3000/images/movie4.png" width="500rpx"></image>
 </view>

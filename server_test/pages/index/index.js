@@ -4,6 +4,9 @@ const app = getApp()
 import {Base64} from 'js-base64'
 
 Page({
+  data:{
+    s:''
+  },
   onGetToken(){
     wx.login({
       success: res=>{
@@ -158,6 +161,21 @@ Page({
       method:'POST',
       success(res){
         console.log(res.data)
+      },
+      header:{
+        Authorization: this._encode()
+      }
+    })
+  },
+  onGetImg(){
+    wx.request({
+      url: `http://localhost:3000/images/movie4.png`,
+      method:'GET',
+      success:(res)=>{
+        console.log(res)
+        this.setData({
+          s:res.data
+        })
       },
       header:{
         Authorization: this._encode()
