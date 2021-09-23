@@ -1,7 +1,1 @@
 /**app.wxss**/
-page{
-    font-size: 32rpx;
-    font-family: "PingFangSC-Thin";
-}
-
-@import 'assets/css/base.wxss';

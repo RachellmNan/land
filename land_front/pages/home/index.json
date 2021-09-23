@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+      "m-like": "/components/Like/index",
+      "m-share": "/components/Share/index",
+      "m-periodical": "/components/Periodical/index"
+  }
+}

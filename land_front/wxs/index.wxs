@@ -1,0 +1,14 @@
+function _tansform(count){
+    var max = '9999.9k'
+    if(count>=9999900){
+        return max
+    }
+    if(count>=1000){
+        return count&1000 ?    (count/1000).toFixed(1) + 'k' : count/1000+ 'k'
+    }
+    return count
+}
+
+module.exports = {
+    _tansform: _tansform
+}

@@ -1,0 +1,6 @@
+<view class="container"  bind:tap="changeLike">
+    <image mode="widthFix" src="{{isLike ? Like: disLike}}" />
+    <text class="count" >{{util._tansform(count)}}</text>
+</view>
+
+<wxs module="util" src="/wxs/index.wxs"></wxs>

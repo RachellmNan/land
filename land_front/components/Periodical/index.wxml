@@ -1,0 +1,10 @@
+<view class="container">
+    <view class="index-wrapper">
+        <text >No.</text>
+        <text class="index">17</text>
+    </view>
+    <view class="date">
+        <text class="month">三月</text>
+        <text class="year">2018</text>
+    </view>
+</view>

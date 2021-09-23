@@ -1,5 +1,0 @@
-<view class="container" >
-    <image src="/assets/imgs/like.png" bind:tap="add"/>
-    <text class="count" >{{count}}</text>
-</view>
-  

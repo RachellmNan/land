@@ -1,0 +1,11 @@
+<view class="container">
+    <view class="top">
+        <view class="left">
+            <m-periodical></m-periodical>
+        </view>
+        <view class="right">
+            <m-like count="10001" isLike="{{isLike}}" bind:likeStatus="changeLike"></m-like>
+            <m-share></m-share>
+        </view>
+    </view>
+</view>

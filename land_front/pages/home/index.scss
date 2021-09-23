@@ -1,0 +1,14 @@
+.container{
+    .top{
+        height: 100rpx;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        overflow: hidden;
+        background-color: burlywood;
+        .right{
+            display: flex;
+            align-items: center;
+        }
+    }
+}

@@ -1,0 +1,11 @@
+.container image {
+  width: 30rpx;
+}
+
+.container button {
+  background-color: #fff;
+  padding: 0;
+  margin-right: 30rpx;
+  display: flex;
+  align-items: center;
+}
