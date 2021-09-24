@@ -37,8 +37,17 @@ function _showErr(code = 1){
     })
 }
 
+function getHeight(height = 0){
+    let res = wx.getSystemInfoSync()
+    return px2rpx(res.windowWidth, res.windowHeight) - height
+}
+
+function px2rpx(scrrenWidth, scrrenHeight){
+    return 750 * scrrenHeight / scrrenWidth
+}
 
 
 module.exports = {
-    promisic
+    promisic,
+    getHeight
 }

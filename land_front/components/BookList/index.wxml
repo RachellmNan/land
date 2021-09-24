@@ -1,0 +1,3 @@
+<view class="container">
+    <m-book wx:for="{{bookList}}" wx:key="index" book="{{item}}"></m-book>
+</view>

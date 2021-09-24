@@ -2,7 +2,8 @@
     "pages": [
         "pages/home/index",
         "pages/book/index",
-        "pages/my/index"
+        "pages/my/index",
+        "pages/detail/index"
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -11,7 +12,7 @@
         "navigationBarTextStyle": "black"
     },
     "tabBar": {
-        "color":"#c7c7c7",
+        "color": "#c7c7c7",
         "selectedColor": "#000",
         "list": [
             {
@@ -34,7 +35,9 @@
             }
         ]
     },
-    "requiredBackgroundModes":["audio"],
+    "requiredBackgroundModes": [
+        "audio"
+    ],
     "style": "v2",
     "sitemapLocation": "sitemap.json"
 }

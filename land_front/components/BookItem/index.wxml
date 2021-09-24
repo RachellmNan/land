@@ -1,0 +1,12 @@
+<view class="container">
+    <image src="{{book.image}}" />
+    <view class="bottom">
+        <text class="title">{{book.title}}</text>
+        <text class="author">{{book.author}}</text>
+        <view class="detail-wrapper">
+            <text class="like_count">{{book.fav_nums}}</text>
+            <text >喜欢</text>
+        </view>
+    </view>
+
+</view>

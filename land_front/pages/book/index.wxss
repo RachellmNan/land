@@ -1,1 +1,108 @@
-/* pages/book/index.wxss */
+.container {
+  background-color: #fff;
+}
+
+.container .book-list-wrapper .top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 110rpx;
+}
+
+.container .book-list-wrapper .top .search-identifying {
+  width: 690rpx;
+  line-height: 70rpx;
+  border-radius: 50rpx;
+  background-color: #f7f7f7;
+  text-align: center;
+}
+
+.container .book-list-wrapper .top .search-identifying text {
+  margin-left: 10rpx;
+  color: #c5c5c5;
+}
+
+.container .book-list-wrapper .scroll-wrapper {
+  background-color: #f9f9f9;
+}
+
+.container .book-list-wrapper .scroll-wrapper .scroll-container .tip {
+  margin-top: 40rpx;
+  margin-bottom: 26rpx;
+  text-align: center;
+}
+
+.container .search-wrapper .search-top {
+  height: 110rpx;
+  background-color: #fff;
+  display: flex;
+}
+
+.container .search-wrapper .search-top .search-input-wrapper {
+  width: 540rpx;
+  height: 70rpx;
+  background-color: #f7f7f7;
+  border-radius: 50rpx;
+  display: flex;
+  align-items: center;
+  padding-left: 28rpx;
+  margin-left: 30rpx;
+  position: relative;
+}
+
+.container .search-wrapper .search-top .search-input-wrapper .delete {
+  padding: 10rpx;
+  position: absolute;
+  right: 0;
+  transform: translateX(-10%);
+}
+
+.container .search-wrapper .search-top .search-input-wrapper input {
+  margin-left: 10rpx;
+  width: 440rpx !important;
+}
+
+.container .search-wrapper .search-top .cancel-wrapper {
+  height: 70rpx;
+  line-height: 70rpx;
+  width: 120rpx;
+  border-radius: 50rpx;
+  text-align: center;
+  box-sizing: border-box;
+  border: 2rpx solid #eee;
+  font-size: 28rpx;
+  margin-left: 30rpx;
+}
+
+.container .search-wrapper .keys-wrapper {
+  margin-top: 30rpx;
+}
+
+.container .search-wrapper .keys-wrapper .tags {
+  padding-left: 30rpx;
+}
+
+.container .search-wrapper .keys-wrapper .tags:nth-child(2) {
+  margin-top: 80rpx;
+}
+
+.container .search-wrapper .keys-wrapper .tags .title {
+  display: flex;
+  font-size: 28rpx;
+}
+
+.container .search-wrapper .keys-wrapper .tags .title::before {
+  display: inline-block;
+  content: '';
+  height: 32rpx;
+  width: 8rpx;
+  background-color: #000;
+  margin-right: 20rpx;
+}
+
+.container .search-wrapper .keys-wrapper .tags .tag-wrapper {
+  margin-left: 30rpx;
+  margin-right: 10rpx;
+  display: flex;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,98 @@
+.container{
+    background-color: #fff;
+    .book-list-wrapper{
+        .top{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 110rpx;
+            .search-identifying{
+                width: 690rpx;
+                line-height: 70rpx;
+                border-radius: 50rpx;
+                background-color: #f7f7f7;
+                text-align: center;
+                text{
+                    margin-left:10rpx;
+                    color: #c5c5c5;
+                }
+            }
+        }
+        .scroll-wrapper{
+            background-color: #f9f9f9;
+            .scroll-container{
+                .tip{
+                    margin-top: 40rpx;
+                    margin-bottom: 26rpx;
+                    text-align: center;
+                }
+            }
+        }
+    }
+    .search-wrapper{
+        .search-top{
+            height: 110rpx;
+            background-color: #fff;
+            display: flex;
+            .search-input-wrapper{
+                width: 540rpx;
+                height: 70rpx;
+                background-color: #f7f7f7;
+                border-radius: 50rpx;
+                display: flex;
+                align-items: center;
+                padding-left: 28rpx;
+                margin-left: 30rpx;
+                position: relative;
+                .delete{
+                    padding: 10rpx;
+                    position: absolute;
+                    right: 0;
+                    transform: translateX(-10%);
+                }
+                input{
+                    margin-left: 10rpx;
+                    width: 440rpx !important;
+                }
+            }
+            .cancel-wrapper{
+                height: 70rpx;
+                line-height: 70rpx;
+                width: 120rpx;
+                border-radius: 50rpx;
+                text-align: center;
+                box-sizing: border-box;
+                border: 2rpx solid #eee;
+                font-size: 28rpx;
+                margin-left: 30rpx;
+            }
+        }
+        .keys-wrapper{
+            margin-top: 30rpx;
+            .tags{
+                padding-left: 30rpx;
+                &:nth-child(2){
+                    margin-top: 80rpx;                    
+                }
+                .title{
+                    display: flex;
+                    font-size: 28rpx;
+                    &::before{
+                        display: inline-block;
+                        content: '';
+                        height: 32rpx;
+                        width: 8rpx;
+                        background-color: #000;
+                        margin-right: 20rpx;
+                    }
+                }
+                .tag-wrapper{
+                    margin-left: 30rpx;
+                    margin-right: 10rpx;
+                    display: flex;
+                    flex-wrap: wrap;
+                }
+            }    
+        }
+    }
+}

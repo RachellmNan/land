@@ -1,2 +1,47 @@
-<!--pages/book/index.wxml-->
-<text>pages/book/index.wxml</text>
+<view class="container">
+    <view wx:if="{{!isSearch}}" class="book-list-wrapper">
+        <view class="top">
+            <view class="search-identifying">
+                <m-icon name="sousuo"></m-icon>
+                <text >搜索书籍</text>
+            </view>
+        </view>
+        <scroll-view scroll-y class="scroll-wrapper" style="height:{{scrollHeight}}rpx">
+            <view class="scroll-container">
+                <view class="tip">精选</view>
+                <m-bookList bookList="{{bookList}}"></m-bookList>
+            </view>
+        </scroll-view>
+    </view>
+    <view wx:if="{{isSearch}}" class="search-wrapper">
+        <view class="search-top">
+            <view class="search-input-wrapper">
+                <m-icon name="sousuo"></m-icon>
+                <input  focus placeholder="书籍名" placeholder-class placeholder-style="font-size:28rpx;margin-left:4rpx"/>
+                <m-icon name="delete" class="delete"></m-icon>
+            </view>
+            <view class="cancel-wrapper">
+                <text >取消</text>
+            </view>
+        </view>
+        <view class="keys-wrapper">
+            <view class="tags">
+                <view class="title">
+                    <text >历史搜索</text>
+                </view>
+                <view class="tag-wrapper">
+                    <m-tag></m-tag>
+                </view>
+            </view>
+            <view class="tags">
+                <view class="title">
+                    <text >热门搜索</text>
+                </view>
+                <view class="tag-wrapper">
+                    <m-tag wx:for="{{hotWordList}}" wx:key="index" title="{{item}}"></m-tag>
+                </view>
+            </view>
+        </view>
+        <view class="seach-result"></view>
+    </view>
+</view>

@@ -1,0 +1,39 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 240rpx;
+    margin-left: 90rpx;
+    margin-bottom: 60rpx;
+    box-shadow: 0 2rpx 10rpx 4rpx #eee;
+    image{
+        width: 240rpx;
+        height: 222rpx;
+        overflow: hidden;
+    }
+    .bottom{
+        display: flex;
+        flex-direction: column;
+        padding: 20rpx 20rpx 15rpx 20rpx;
+        background-color: #fff;
+        color: #999;
+        font-size: 22rpx;
+        text{
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .title{
+            color: #4c4c4c;
+            font-size: 32rpx;
+            
+        }
+        .detail-wrapper{
+            margin-top: 28rpx;
+            text-align: right;
+            text{
+                
+                margin-left: 4rpx;
+            }
+        }
+    }
+}

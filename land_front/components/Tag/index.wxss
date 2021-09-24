@@ -1,0 +1,9 @@
+.container {
+  display: inline-block;
+  font-size: 28rpx;
+  color: #707070;
+  padding: 20rpx;
+  margin-right: 20rpx;
+  background-color: #f7f7f7;
+  margin-top: 20rpx;
+}

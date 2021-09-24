@@ -1,3 +1,6 @@
+const { BookModel } = require("../../models/book")
+const { getSystemInfo, getHeight } = require("../../utils/util")
+
 // pages/book/index.js
 Page({
 
@@ -5,62 +8,29 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        scrollHeight:0,
+        bookList: [],
+        isSearch: true
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        this._init()
     },
 
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
+    async _init(){
+        let bookModel = new BookModel()
+        let bookList = await bookModel.getHot()
+        let hotWordList = (await bookModel.getHotSearch()).hot
+        console.log('hotWords: ', hotWordList)
+        console.log('bookList: ', bookList)
+        let scrollHeight = getHeight(110)
+        this.setData({
+            scrollHeight,
+            bookList,
+            hotWordList
+        })
     }
 })
