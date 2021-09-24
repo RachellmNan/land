@@ -28,7 +28,7 @@ Component({
     methods: {
         changeLike(){
             this.triggerEvent('likeStatus',{
-                isLike:!this.data.isLike
+                isLike:this.data.isLike
             })
         }
     }

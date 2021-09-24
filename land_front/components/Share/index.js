@@ -19,7 +19,7 @@ Component({
      */
     methods: {
         show(){
-            console.log('click')
+            this.triggerEvent('share')
         }
     }
 })

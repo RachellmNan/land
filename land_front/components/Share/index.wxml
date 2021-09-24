@@ -1,5 +1,5 @@
 <view class="container">
-    <button  size="mini" bindtap="show">
+    <button  size="mini" bindtap="show" open-type="share">
         <image src="/assets/imgs/share.png" mode="widthFix"/>
     </button>
 </view>

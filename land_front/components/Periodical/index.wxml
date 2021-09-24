@@ -1,10 +1,28 @@
 <view class="container">
     <view class="index-wrapper">
         <text >No.</text>
-        <text class="index">17</text>
+        <text class="index">{{index}}</text>
     </view>
     <view class="date">
-        <text class="month">三月</text>
-        <text class="year">2018</text>
+        <text class="month">{{util.getMonth(pubdate)}}</text>
+        <text class="year">{{util.getYear(pubdate)}}</text>
     </view>
 </view>
+
+<wxs module="util">
+    function getMonth(pubdate){
+        console.log('pubdate: ',pubdate)
+        var month = ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月']
+        if(pubdate){
+            var index = pubdate.slice(5,7) - 1
+            return month[index]
+        }
+    }
+    function getYear(pubdate){
+        return pubdate.slice(0,4)
+    }
+    module.exports = {
+        getMonth: getMonth,
+        getYear : getYear
+    }
+</wxs>

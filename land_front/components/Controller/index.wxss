@@ -1,0 +1,23 @@
+.container {
+  width: 588rpx;
+  height: 80rpx;
+  background-color: #f7f7f7;
+  text-align: center;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container image {
+  width: 24rpx;
+  padding: 10rpx;
+}
+
+.container .previous {
+  margin-left: 8rpx;
+}
+
+.container .next {
+  margin-right: 8rpx;
+}

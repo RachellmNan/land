@@ -1,11 +1,15 @@
 <view class="container">
     <view class="top">
         <view class="left">
-            <m-periodical></m-periodical>
+            <m-periodical index="{{classic.index}}" pubdate="{{classic.pubdate}}"></m-periodical>
         </view>
         <view class="right">
-            <m-like count="10001" isLike="{{isLike}}" bind:likeStatus="changeLike"></m-like>
-            <m-share></m-share>
+            <m-like count="{{likeCount}}" isLike="{{isLike}}" bind:likeStatus="changeLike"></m-like>
+            <m-share bind:share="onShareAppMessage"></m-share>
         </view>
     </view>
+    <view class="content">
+        <m-poem type="{{classic.type}}" index="{{classic.index}}" url="{{classic.url}}" name="{{classic.title}}" img="{{classic.image}}" title="{{classic.content}}" ></m-poem>
+    </view>
+    <m-controller  currentIndex="{{classic.index}}" maxIndex="{{maxIndex}}" class="controller" content="{{classic.title}}" bind:tip="changeClassic"></m-controller>
 </view>

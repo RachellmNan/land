@@ -1,0 +1,38 @@
+.container{
+    position: relative;
+    text-align: center;
+    image{
+        width: 100%;
+    }
+    .type{
+        position: absolute;
+        top: 421rpx;
+        left: 30rpx;
+        width: 45rpx;
+    }
+    .content-wrapper{
+        position: absolute;
+        top: 615rpx;
+        left: 100rpx;
+        width: 560rpx;
+        text-align: center;
+        .content{
+            display: inline-block;
+            text-align: left;
+            color: #3f3f3f;
+        }
+    }
+    .music{
+        border-radius: 50%;
+        width: 420rpx;
+        margin-top: 42rpx;
+    }
+    .music_logo{
+        position: absolute;
+        width: 140rpx;
+        height: 140rpx;
+        left: 310rpx;
+        top: 180rpx;
+    }
+    
+}

@@ -1,0 +1,5 @@
+<view class="container">
+    <m-icon name="{{ currentIndex <= minIndex ? 'left_forbidden' : 'left'}}" class="left" data-tip="previous" bind:tap="previous"></m-icon>
+    <text class="content">{{content}}</text>
+    <m-icon name="{{ currentIndex >= maxIndex ? 'right_forbidden' : 'right'}}" class="right" data-tip="next" bind:tap="next"></m-icon>
+</view>

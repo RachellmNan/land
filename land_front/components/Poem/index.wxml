@@ -1,0 +1,10 @@
+<view class="container">
+    <image  src="{{img}}" class="{{type==200 ? 'music': null}}" mode="widthFix"/>
+    <image wx:if="{{type==200 && playingStatus}}" src="{{isPlaying}}" class="music_logo"  bind:tap="pauseMusic"/>
+    <image wx:if="{{type==200 &&  !playingStatus}}" src="{{pause}}" class="music_logo"  bind:tap="playMusic"/>
+    <image  wx:if="{{type!== 200}}" class="type" src="{{type == 100 ? movie : poem}}" mode="widthFix"/>
+    <image  wx:if="{{type == 200}}" class="type" src="{{music}}" mode="widthFix"/> 
+    <view class="content-wrapper">
+        <text class="content">{{title}}</text>
+    </view>
+</view>

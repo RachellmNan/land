@@ -1,16 +1,12 @@
-// components/Periodical/index.js
+// components/Icon/index.js
 Component({
     /**
      * 组件的属性列表
      */
     properties: {
-        index:{
-            type: Number,
-            value: 1
-        },
-        pubdate:{
+        name:{
             type: String,
-            value: '2018-01'
+            value: ''
         }
     },
 

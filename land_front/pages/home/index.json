@@ -2,6 +2,8 @@
   "usingComponents": {
       "m-like": "/components/Like/index",
       "m-share": "/components/Share/index",
-      "m-periodical": "/components/Periodical/index"
+      "m-periodical": "/components/Periodical/index",
+      "m-poem": "/components/Poem/index",
+      "m-controller": "/components/Controller/index"
   }
 }

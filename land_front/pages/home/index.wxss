@@ -4,10 +4,15 @@
   align-items: center;
   justify-content: space-between;
   overflow: hidden;
-  background-color: burlywood;
 }
 
 .container .top .right {
   display: flex;
   align-items: center;
+}
+
+.container .controller {
+  position: absolute;
+  bottom: 40rpx;
+  left: 80rpx;
 }
