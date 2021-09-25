@@ -1,3 +1,7 @@
+const { BookModel } = require("../../models/book")
+const { Like } = require("../../models/like")
+const { getHeight } = require("../../utils/util")
+
 // pages/detail/index.js
 Page({
 
@@ -5,62 +9,139 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        BookDetail: {},
+        comments:[],
+        scrollHeight: 0,
+        maskStatus: false,
+        inputValue: '',
+        likeCount: 1,
+        likeStatus: false,
+        showAll: false
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
-
+    async onLoad(options) {
+        wx.showLoading({
+            title:'加载中',
+            mask:true,
+        })
+        let id = options.id
+        let bookModel = new BookModel()
+        let BookDetail = await bookModel.getDetail(id)
+        let comments = (await bookModel.getComment(id)).comments
+        let scrollHeight = getHeight(88)
+        let likeObj = await this._getLikeStatusObj(id)
+        console.log('likeObj:', likeObj)
+        console.log(comments)
+        this.setData({
+            BookDetail,
+            comments,
+            scrollHeight,
+            likeCount: likeObj.fav_nums,
+            likeStatus: likeObj.like_status
+        })
+        wx.hideLoading()
+        this.setData({
+            showAll: true
+        })
     },
 
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
+    toComment(){
+        this.setData({
+            maskStatus: true
+        })
     },
 
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
+    cancelMask(){
+        this.setData({
+            maskStatus: false
+        })
     },
 
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
+    async inputConfirm(event){
+        let value = event.detail.value
+        if(value.length > 12){
+            wx.showToast({
+                title: '评论字数需小于12',
+                icon: 'error'
+            })
+            return 
+        }
+        wx.showLoading({
+            title:'评论发布中',
+            mask:true,
 
+        })
+        let bookModel = new BookModel()
+        let book_id = this.data.BookDetail.id
+        let res = await bookModel.addComment(book_id, value)
+        console.log('评论', res)
+        let comments = (await bookModel.getComment(book_id)).comments
+        console.log('comments',comments)
+        this.setData({
+            inputValue: '',
+            comments
+        })
+        wx.hideLoading()
+        wx.showToast({
+            title: '评论成功',
+            icon: 'success'
+        })
     },
 
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
+    async likeStatus(event){
+        let isLike = event.detail.isLike
+        const likeModel = new Like()
+        if(isLike){
+            await likeModel.cancelLike(400, this.data.BookDetail.id)
+        }else{
+            await likeModel.dolike(400, this.data.BookDetail.id)
+        }
+        let likeObj = await this._getLikeStatusObj(this.data.BookDetail.id)
+        console.log('点赞的likeObj',likeObj)
+        this.setData({
+            likeCount: likeObj.fav_nums,
+            likeStatus: likeObj.like_status
+        })
     },
 
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
+    async _getLikeStatusObj(id){
+        const likeModel = new Like()
 
+        return await likeModel.getBookLikeCount(id)  
     },
 
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
+    async tagContent(event){
+        wx.showLoading({
+            title:'评论发布中',
+            mask:true,
+        })
+        let value = event.currentTarget.dataset.content.content
+        let bookModel = new BookModel()
+        let book_id = this.data.BookDetail.id
+        let res = await bookModel.addComment(book_id, value)
+        console.log('评论', res)
+        let comments = (await bookModel.getComment(book_id)).comments
+        console.log('comments',comments)
+        this.setData({
+            inputValue: '',
+            comments
+        })
+        wx.hideLoading()
+        wx.showToast({
+            title: '评论成功',
+            icon: 'success'
+        })
     },
 
-    /**
-     * 用户点击右上角分享
-     */
+    cancel(){
+        this.setData({
+            maskStatus: false
+        })
+    },
+
     onShareAppMessage: function () {
-
     }
 })

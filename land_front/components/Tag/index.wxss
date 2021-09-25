@@ -1,9 +1,15 @@
 .container {
   display: inline-block;
-  font-size: 28rpx;
+  font-size: 24rpx;
   color: #707070;
-  padding: 20rpx;
+  padding: 8rpx 30rpx;
   margin-right: 20rpx;
   background-color: #f7f7f7;
   margin-top: 20rpx;
+}
+
+.container .count {
+  margin-left: 14rpx;
+  font-size: 20rpx;
+  color: #c3c3c3;
 }

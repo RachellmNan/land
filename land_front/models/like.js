@@ -24,8 +24,15 @@ class Like extends Http{
     }
 
     async getLikeCount(type, id){
+        
         return await this.request({
             url: `/classic/${type}/${id}/favor`
+        })
+    }
+
+    async getBookLikeCount(book_id){
+        return await this.request({
+            url: `/book/${book_id}/favor`
         })
     }
 }

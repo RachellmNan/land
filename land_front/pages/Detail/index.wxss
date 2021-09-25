@@ -1,1 +1,191 @@
-/* pages/detail/index.wxss */
+.container {
+  background-color: #f5f5f5;
+}
+
+.container .image-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 490rpx;
+  margin-bottom: 20rpx;
+  background-color: #fff;
+}
+
+.container .image-wrapper image {
+  width: 200rpx;
+  height: 300rpx;
+  margin-top: 40rpx;
+  box-shadow: 4rpx 4rpx 10rpx 4rpx #eee;
+}
+
+.container .image-wrapper .name {
+  margin-top: 30rpx;
+  font-size: 36rpx;
+}
+
+.container .image-wrapper .author {
+  font-size: 24rpx;
+  margin-top: 8rpx;
+  color: #3d3535;
+}
+
+.container .commenmt-wrapper {
+  background-color: #fff;
+  padding: 0 34rpx;
+  margin-bottom: 20rpx;
+  overflow: hidden;
+}
+
+.container .commenmt-wrapper .title {
+  margin-top: 28rpx;
+  margin-bottom: 10rpx;
+  text-align: center;
+  font-size: 28rpx;
+}
+
+.container .commenmt-wrapper .tag-wrapper {
+  margin-bottom: 30rpx;
+}
+
+.container .commenmt-wrapper .tag-wrapper m-tag:first-child view {
+  background-color: #fffadd;
+}
+
+.container .commenmt-wrapper .tag-wrapper m-tag:nth-child(2) view {
+  background-color: #eefaff;
+}
+
+.container .summary-wrapper {
+  background-color: #fff;
+  overflow: hidden;
+  margin-bottom: 20rpx;
+  padding: 0 44rpx;
+}
+
+.container .summary-wrapper .title {
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 84rpx;
+}
+
+.container .summary-wrapper .content {
+  display: block;
+  color: #666;
+  font-size: 26rpx;
+  margin-bottom: 30rpx;
+}
+
+.container .book-detail {
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.container .book-detail .title {
+  line-height: 90rpx;
+  text-align: center;
+  font-size: 28rpx;
+}
+
+.container .book-detail .detail-info {
+  display: flex;
+  font-size: 26rpx;
+  color: #666;
+  margin-bottom: 20rpx;
+}
+
+.container .book-detail .detail-info .left {
+  margin-left: 56rpx;
+  margin-right: 20rpx;
+}
+
+.container .book-detail .flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.container .comment-bar {
+  background-color: #fff;
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 30rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container .comment-bar .input-bar {
+  width: 404rpx;
+  line-height: 56rpx;
+  border-radius: 50rpx;
+  border: 2rpx solid #000;
+  font-size: 24rpx;
+}
+
+.container .comment-bar .input-bar text {
+  margin-left: 10rpx;
+}
+
+.container .comment-bar .operator-wrapper {
+  display: flex;
+}
+
+.container .mask {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: #999999;
+  opacity: .5;
+}
+
+.container .comment-box {
+  position: fixed;
+  bottom: 0rpx;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.container .comment-box .box-top {
+  display: flex;
+  padding: 0 30rpx;
+  height: 100rpx;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2rpx solid #f5f5f5;
+}
+
+.container .comment-box .box-top .cancel {
+  padding: 10rpx;
+}
+
+.container .comment-box .tags {
+  margin-bottom: 40rpx;
+}
+
+.container .comment-box .tags m-tag:first-child view {
+  background-color: #fffadd;
+}
+
+.container .comment-box .tags m-tag:nth-child(2) view {
+  background-color: #eefaff;
+}
+
+.container .comment-box .input-box {
+  margin: auto;
+  border-radius: 50rpx;
+  width: 694rpx;
+  height: 68rpx;
+  display: flex;
+  align-items: center;
+  margin-bottom: 30rpx;
+  background-color: #f5f5f5;
+}
+
+.container .comment-box .input-box input {
+  padding-left: 20rpx;
+  width: 100%;
+}

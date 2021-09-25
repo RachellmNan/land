@@ -1,2 +1,75 @@
-<!--pages/detail/index.wxml-->
-<text>pages/detail/index.wxml</text>
+<view class="container" wx:if="{{showAll}}">
+    <scroll-view scroll-y style="height:{{scrollHeight}}rpx;">
+        <div class="scroll-wrapper">
+            <view class="image-wrapper">
+                <image src="{{BookDetail.image}}" />
+                <text class="name">{{BookDetail.title}}</text>
+                <text class="author">{{BookDetail.author[0]}}</text>
+            </view>
+            <view class="commenmt-wrapper">
+                <view class="title">短评</view>
+                <view class="tag-wrapper">
+                    <m-tag wx:for="{{comments}}" wx:key="index" title="{{item.content}}" count="{{item.nums}}"></m-tag>
+                </view>
+            </view>
+            <view class="summary-wrapper">
+                <view class="title">内容简介</view>
+                <text class="content" user-select decode >&nbsp;&nbsp;&nbsp;&nbsp;{{util.transform(BookDetail.summary)}}</text>
+            </view>
+            <view class="book-detail">
+                <view class="title">书本信息</view>
+                <view class="detail-info">
+                    <view class="left flex">
+                        <text >出版社</text>
+                        <text >出版年</text>
+                        <text >页数</text>
+                        <text >定价</text>
+                        <text >装祯</text>
+                    </view>
+                    <view class="right flex">
+                        <text >{{BookDetail.publisher}}</text>
+                        <text >{{BookDetail.pubdate}}</text>
+                        <text >{{BookDetail.pages}}</text>
+                        <text >{{BookDetail.price}}</text>
+                        <text >{{BookDetail.binding}}</text>
+                    </view>
+                </view>
+            </view>
+        </div>
+    </scroll-view>
+    <view class="comment-bar">
+        <view class="input-bar" bind:tap="toComment">
+            <m-icon name="shuru"></m-icon>
+            <text >输入短评</text>
+        </view>
+        <view class="operator-wrapper">
+            <m-like bind:likeStatus="likeStatus" isLike="{{likeStatus}}" count="{{likeCount}}"></m-like>
+            <m-share bind:share="onShareAppMessage"></m-share>
+        </view>
+    </view>
+    <view class="mask" wx:if="{{maskStatus}}" bind:tap="cancelMask"></view>
+    <view class="comment-box" wx:if="{{maskStatus}}">
+        <view class="box-top">
+            <text >点击标签+1</text>
+            <text class="cancel" bind:tap="cancel">取消</text>
+        </view>
+        <view class="tags">
+            <m-tag data-content="{{item}}" bind:tap="tagContent" wx:for="{{comments}}" wx:key="index" wx:if="{{index<3}}" title="{{item.content}}" count="{{item.nums}}"></m-tag>
+        </view>
+        <view class="input-box">
+            <input  placeholder="短评最多输入12个字" bindconfirm="inputConfirm" value="{{inputValue}}" focus cursor-spacing="20"/>
+        </view>
+    </view>
+</view>
+
+<wxs module="util">
+    function transform(text){
+        if(!text) return
+        var reg = getRegExp('\\\\n','g')
+        return text.replace(reg,'\n&nbsp;&nbsp;&nbsp;&nbsp;')
+    }
+
+    module.exports = {
+        transform: transform
+    }
+</wxs>

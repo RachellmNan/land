@@ -1,5 +1,8 @@
 {
   "usingComponents": {
-    
+    "m-tag":"/components/Tag/index",
+    "m-like": "/components/Like/index",
+    "m-share": "/components/Share/index",
+    "m-icon": "/components/Icon/index"
   }
 }

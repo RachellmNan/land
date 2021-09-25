@@ -33,6 +33,14 @@ Component({
      * 组件的方法列表
      */
     methods: {
-
+        goDetail(event){
+            let id = event.currentTarget.dataset.id
+            this.triggerEvent('goDetail',{
+                id
+            },{
+                bubbles: true,
+                composed: true
+            })
+        }
     }
 })

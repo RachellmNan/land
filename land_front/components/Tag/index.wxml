@@ -1,3 +1,4 @@
 <view class="container">
     <text >{{title}}</text>
+    <text class="count" wx:if="{{count}}">+ {{count}}</text>
 </view>
