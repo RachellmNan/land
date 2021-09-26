@@ -1,28 +1,20 @@
-const Router = require('koa-router')
 const requireDirectory = require('require-directory')
 
+
+
 class InitManager{
+
     static init(app){
         this.app = app
-        this._loadRoutes(app)
-        this._loadConfig()
+        this._initLoadRouters(app)
     }
-    static _loadRoutes(app){
-        function whenLoadModules(module){
-            if(module instanceof Router){
-                app.use(module.routes())
-            }
+
+    static _initLoadRouters(app){
+        const apiDirectoryPath = process.cwd() + '/app/v1'
+        requireDirectory(module, apiDirectoryPath, {visit: visitor})
+        function visitor(router){
+            app.use(router.routes())
         }
-        // 所需导入路由的路径
-        const apiDirectory = process.cwd() + '/app/api/v1'
-        requireDirectory(module, apiDirectory, {
-            visit:whenLoadModules
-        })
-    }
-    static _loadConfig(path=''){
-        const configPath = path || process.cwd() + '/config/configs.js'
-        const config = require(configPath)
-        global.config = config
     }
 }
 
