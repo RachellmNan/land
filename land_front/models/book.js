@@ -20,6 +20,7 @@ class BookModel extends Http{
     }
 
     async searchBook(q,start=0,count=20,summary=1){
+        console.log('搜索内容:', q)        
         return await this.request({
             url : '/book/search',
             data:{

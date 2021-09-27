@@ -106,7 +106,7 @@ Page({
     async searchBook(searchValue){
         console.log(searchValue)
         let bookModel = new BookModel()
-        let res = await bookModel.searchBook()
+        let res = await bookModel.searchBook(searchValue)
         console.log(res)
     },
     onHide(){
