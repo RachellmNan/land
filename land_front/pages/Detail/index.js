@@ -35,6 +35,7 @@ Page({
         let likeObj = await this._getLikeStatusObj(id)
         console.log('likeObj:', likeObj)
         console.log(comments)
+        console.log('bookDetail: ', BookDetail)
         this.setData({
             BookDetail,
             comments,

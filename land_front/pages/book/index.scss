@@ -94,5 +94,12 @@
                 }
             }    
         }
+        .search-result{
+            overflow: hidden;
+            .bottom-tip{
+                text-align:center;
+                padding-bottom: 10rpx;
+            }
+        }
     }
 }

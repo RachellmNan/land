@@ -106,3 +106,12 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+.container .search-wrapper .search-result {
+  overflow: hidden;
+}
+
+.container .search-wrapper .search-result .bottom-tip {
+  text-align: center;
+  padding-bottom: 10rpx;
+}

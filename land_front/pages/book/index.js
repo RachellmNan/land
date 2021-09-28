@@ -1,4 +1,5 @@
 const { BookModel } = require("../../models/book")
+const { Paging } = require("../../models/paging")
 const { Storage } = require("../../models/storage")
 const { getSystemInfo, getHeight } = require("../../utils/util")
 
@@ -14,7 +15,10 @@ Page({
         isSearch: false,
         inputValue: '',
         storage: [],
-        timer: ''
+        timer: '',
+        searchResult:[],
+        paging:'',
+        moreData: true
     },
 
     /**
@@ -70,19 +74,23 @@ Page({
     },
     closeSearch(){
         this.setData({
-            isSearch: false
+            isSearch: false,
+            searchResult: [],
+            inputValue: ''
         })
     },
     searchFromTag(event){
         let searchValue = event.currentTarget.dataset.value
         this._updateWord(searchValue)
+        this.searchBook(searchValue)
         this.setData({
             inputValue: searchValue
         })
     },
     clearSearch(){
         this.setData({
-            inputValue: ''
+            inputValue: '',
+            searchResult: []
         })
     },
     onInput(event){
@@ -105,13 +113,42 @@ Page({
 
     async searchBook(searchValue){
         console.log(searchValue)
-        let bookModel = new BookModel()
-        let res = await bookModel.searchBook(searchValue)
+        const paging = new Paging('/book/search',searchValue)
+        let res = await paging.getMoreData()
+        if(!res.accumulator.length){{
+            wx.showToast({
+                title:'不存在该图书',
+                icon:'error'
+            })
+            return
+        }}
+        console.log('res1: ', res)
+        // let bookModel = new BookModel()
+        // let res = await bookModel.searchBook(searchValue)
+        this.setData({
+            searchResult: res.accumulator,
+            paging,
+            moreData: res.moreData
+        })
         console.log(res)
     },
     onHide(){
         setTimeout(()=>{
             this.closeSearch()
         },500)
+    },
+    async onReachBottom(){
+        const paging = this.data.paging
+        let res = await paging.getMoreData()
+        console.log('加载新数据: ', res)
+        if(res){
+            this.setData({
+                searchResult: res.accumulator,
+                moreData: res.moreData
+            })
+        }
+    },
+    scrolltolower(){
+        this.onReachBottom()
     }
 })

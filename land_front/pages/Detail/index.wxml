@@ -6,13 +6,13 @@
                 <text class="name">{{BookDetail.title}}</text>
                 <text class="author">{{BookDetail.author[0]}}</text>
             </view>
-            <view class="commenmt-wrapper">
+            <view class="commenmt-wrapper" wx:if="{{comments.length}}">
                 <view class="title">短评</view>
                 <view class="tag-wrapper">
                     <m-tag wx:for="{{comments}}" wx:key="index" title="{{item.content}}" count="{{item.nums}}"></m-tag>
                 </view>
             </view>
-            <view class="summary-wrapper">
+            <view class="summary-wrapper" wx:if="{{BookDetail.summary.length}}">
                 <view class="title">内容简介</view>
                 <text class="content" user-select decode >&nbsp;&nbsp;&nbsp;&nbsp;{{util.transform(BookDetail.summary)}}</text>
             </view>

@@ -2,4 +2,4 @@
     <button  size="mini" bindtap="show" open-type="share">
         <image src="/assets/imgs/share.png" mode="widthFix"/>
     </button>
-</view>
+</view>  

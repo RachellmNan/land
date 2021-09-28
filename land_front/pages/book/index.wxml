@@ -24,7 +24,7 @@
                 <text >取消</text>
             </view>
         </view>
-        <view class="keys-wrapper">
+        <view class="keys-wrapper" wx:if="{{!searchResult.length}}">
             <view class="tags">
                 <view class="title">
                     <text >历史搜索</text>
@@ -42,6 +42,11 @@
                 </view>
             </view>
         </view>
-        <view class="seach-result"></view>
+        <scroll-view scroll-y style="height:{{scrollHeight}}rpx" bindscrolltolower="scrolltolower">
+            <view class="search-result" wx:if="{{searchResult.length}}">
+                <m-bookList bind:goDetail="goDetail" bookList="{{searchResult}}"></m-bookList>
+                <view class="bottom-tip" wx:if="{{searchResult.length && !moreData}}">已到底部了</view>
+            </view>
+        </scroll-view>
     </view>
 </view>
