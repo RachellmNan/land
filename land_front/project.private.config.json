@@ -23,6 +23,12 @@
                     "pathName": "pages/detail/index",
                     "query": "id=65",
                     "scene": null
+                },
+                {
+                    "name": "my",
+                    "pathName": "pages/my/index",
+                    "query": "",
+                    "scene": null
                 }
             ]
         }

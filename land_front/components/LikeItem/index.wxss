@@ -1,0 +1,49 @@
+.container {
+  background-color: #fff;
+  width: 330rpx;
+  overflow: hidden;
+  margin-left: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.container .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20rpx 0;
+  padding-left: 20rpx;
+}
+
+.container .top m-tag view {
+  margin-top: 0;
+}
+
+.container .img-wrapper {
+  width: 330rpx;
+  height: 240rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.container .img-wrapper image {
+  width: 100%;
+  height: 100% !important;
+}
+
+.container .img-wrapper .music {
+  width: 200rpx;
+  height: 200rpx !important;
+  border-radius: 50%;
+}
+
+.container .content {
+  padding: 40rpx 20rpx;
+  color: #999999;
+  font-size: 24rpx;
+  line-clamp: 2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

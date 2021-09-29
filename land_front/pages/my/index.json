@@ -1,3 +1,5 @@
 {
-    "usingComponents": {}
+    "usingComponents": {
+        "m-likelist":"/components/LikeList/index"
+    }
   }

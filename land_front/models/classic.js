@@ -18,6 +18,16 @@ class ClassicModel extends Http{
             url: `/classic/${index}/previous`
         })
     }
+
+    async getFavor(start=1, count=20){
+        return await this.request({
+            url: '/classic/favor',
+            data:{
+                start,
+                count
+            }
+        })
+    }
 }
 
 module.exports = {

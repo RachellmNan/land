@@ -1,7 +1,4 @@
 const requireDirectory = require('require-directory')
-
-
-
 class InitManager{
 
     static init(app){

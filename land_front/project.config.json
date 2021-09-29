@@ -38,7 +38,7 @@
         "showES6CompileOption": false
     },
     "compileType": "miniprogram",
-    "libVersion": "2.18.0",
+    "libVersion": "2.19.5",
     "appid": "wxf58d7cd7ccd36bdc",
     "projectname": "land",
     "debugOptions": {

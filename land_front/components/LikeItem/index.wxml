@@ -1,0 +1,12 @@
+<view class="container">
+    <view class="top">
+        <m-tag title="{{title}}"></m-tag>
+        <m-like count="{{classic.fav_nums}}" bind:likeStatus="likeStatus" data-type="{{classic.type}}" data-id="{{classic.id}}"></m-like>
+    </view>
+    <view class="img-wrapper">
+        <image  src="{{classic.image}}" class="{{ title == '音乐' ? 'music':''}}"  />
+    </view>
+    <view class="content">
+        <text >{{classic.content}}</text>
+    </view>
+</view>
