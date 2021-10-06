@@ -7,7 +7,7 @@ class InitManager{
     }
 
     static _initLoadRouters(app){
-        const apiDirectoryPath = process.cwd() + '/app/v1'
+        const apiDirectoryPath = process.cwd() + '/app/api/v1'
         requireDirectory(module, apiDirectoryPath, {visit: visitor})
         function visitor(router){
             app.use(router.routes())

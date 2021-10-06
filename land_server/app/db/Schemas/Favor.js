@@ -6,4 +6,4 @@ const FavorSchema = mongoose.Schema({
     type: Number
 })
 
-mongoose.model('favor', FavorSchema)
+mongoose.model('Favor', FavorSchema)
