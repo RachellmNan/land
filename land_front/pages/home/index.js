@@ -1,3 +1,4 @@
+const config = require("../../config")
 const { ClassicModel } = require("../../models/classic")
 const { Like } = require("../../models/like")
 const { Storage } = require("../../models/storage")
@@ -11,7 +12,7 @@ Page({
     data: {
         classicModel:null,
         classic : null,
-        isLike: true,
+        isLike: false,
         maxIndex: null,
         likeCount:1
     },
@@ -27,7 +28,6 @@ Page({
         const classicModel = new ClassicModel()
         const res = await classicModel.getLatest()
         Storage.setItem('classic'+res.index, res)
-        
         this.setData({
             classic: res,
             classicModel,
@@ -39,7 +39,9 @@ Page({
 
     async _getLikeDetail(){
         const LikeModel = new Like()
+        console.log('type: ',this.data.classic.type)
         let like_res = await LikeModel.getLikeCount(this.data.classic.type, this.data.classic.id)
+        console.log('like_res', like_res)
         let isLike = like_res.like_status
         let likeCount = like_res.fav_nums
         let storage = Storage.getItem('classic'+this.data.classic.index)
@@ -54,6 +56,7 @@ Page({
     
     async changeLike(event){
         let likeStatus  = event.detail.isLike
+        console.log('likeStatus: ',likeStatus)
         let likeModel = new Like()
         if(!likeStatus){
             await likeModel.dolike(this.data.classic.type, this.data.classic.id)
@@ -96,7 +99,9 @@ Page({
     getDatafromStroge(){
 
     },
-
+    onShow(){
+        this._getLikeDetail()
+    },
     onShareAppMessage: function () {
     }
 })

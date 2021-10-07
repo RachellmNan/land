@@ -2,6 +2,16 @@ const { Http } = require("../utils/http");
 
 class Like extends Http{
     async dolike(type, art_id){
+        return await this._request({
+            url: '/like',
+            method: 'post',
+            data:{
+                type,
+                art_id
+            }
+        })
+    }
+    async dolikeBook(type, art_id){
         return await this.request({
             url: '/like',
             method: 'post',
@@ -13,6 +23,16 @@ class Like extends Http{
     }
 
     async cancelLike(type, art_id){
+        return await this._request({
+            url: '/like/cancel',
+            method:'post',
+            data:{
+                type,
+                art_id
+            }
+        })
+    }
+    async cancelLikeBook(type, art_id){
         return await this.request({
             url: '/like/cancel',
             method:'post',
@@ -25,7 +45,7 @@ class Like extends Http{
 
     async getLikeCount(type, id){
         
-        return await this.request({
+        return await this._request({
             url: `/classic/${type}/${id}/favor`
         })
     }

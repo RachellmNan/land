@@ -1,6 +1,8 @@
 const { ClassicModel } = require("../../models/classic")
 const { Like } = require("../../models/like")
-const { getHeight } = require("../../utils/util")
+const { Storage } = require("../../models/storage")
+const { Http } = require("../../utils/http")
+const { getHeight, promisic } = require("../../utils/util")
 
 // pages/my/index.js
 Page({
@@ -9,7 +11,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-        scrollHeight: 0
+        scrollHeight: 0,
+        loginStatus: false
     },
 
     /**
@@ -17,28 +20,26 @@ Page({
      */
     async onLoad(options) {
         const scrollHeight =  getHeight(560)
-        this.authorizeCheck()
+        // this.authorizeCheck()
         this.setData({
             scrollHeight
         })
+        let loginStatus =  Storage.getItem('token')
+        if(loginStatus){
+            this.setData({
+                loginStatus
+            })
+        }
     },
     async onShow(){
         const classic = new ClassicModel()
+        if(!this.data.loginStatus){
+            return 
+        }
         const favor = await classic.getFavor()
-        console.log('favor: ', favor)
-        let res = await wx.getUserProfile()
-        let res1 = await wx.getUserInfo()
-        console.log('用户信息getUserProfile', res)
-        console.log('用户信息getUserInfo', res1)
-        this.authorizeCheck()
         this.setData({
             favor
         })
-    },
-
-    async authorizeCheck(){
-        let settings =  await wx.getSetting()
-        console.log('用户授权的权限: ', settings)
     },
 
     async likeStatus(event){
@@ -49,15 +50,29 @@ Page({
         console.log('取消点赞',res)
         this.onShow()
     },
-    async login(){
-        let res = await wx.getUserProfile({
-            desc:'ss'
+
+    async onLogin(){
+        await wx.getUserProfile({
+            desc: '授权登录'
         })
-        let res1 = await wx.getUserInfo()
-        console.log('用户信息getUserProfile', res)
-        console.log('用户信息getUserInfo', res1)
+        wx.login({
+            success:async (res)=>{
+                let tokenObj =  await (new Http())._request({
+                    url:'/token',
+                    method:'POST',
+                    data:{
+                        code: res.code
+                    }
+                })
+                let token = tokenObj.token
+                Storage.setItem('token',token)
+            }
+        })
+        this.setData({
+            loginStatus: true
+        })
     },
-    async getuserinfo(event){
-        console.log(event.detail)
+    goDetail(event){
+        console.log(2)
     }
 })

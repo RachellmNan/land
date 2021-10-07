@@ -14,7 +14,6 @@ router.post('/', async (ctx)=>{
     const { code } = ctx.request.body
     const url = util.format(config.WX.url, config.WX.appId, config.WX.appSecret, code)
     const res = await axios.get(url)
-    console.log(res)
     if(res.status !== 200){
         throw new AuthFailed('openid获取失败')
     }

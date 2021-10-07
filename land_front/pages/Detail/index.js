@@ -96,9 +96,9 @@ Page({
         let isLike = event.detail.isLike
         const likeModel = new Like()
         if(isLike){
-            await likeModel.cancelLike(400, this.data.BookDetail.id)
+            await likeModel.cancelLikeBook(400, this.data.BookDetail.id)
         }else{
-            await likeModel.dolike(400, this.data.BookDetail.id)
+            await likeModel.dolikeBook(400, this.data.BookDetail.id)
         }
         let likeObj = await this._getLikeStatusObj(this.data.BookDetail.id)
         console.log('点赞的likeObj',likeObj)

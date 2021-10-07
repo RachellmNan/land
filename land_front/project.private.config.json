@@ -29,6 +29,12 @@
                     "pathName": "pages/my/index",
                     "query": "",
                     "scene": null
+                },
+                {
+                    "name": "home",
+                    "pathName": "pages/home/index",
+                    "query": "",
+                    "scene": null
                 }
             ]
         }

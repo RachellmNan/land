@@ -11,18 +11,18 @@ Page({
     wx.login({
       success: res=>{
         if(res.code){
-          console.log(res.code)
+          console.log('code: ',res.code)
           wx.request({
             url:'http://localhost:3000/v1/token',
             method:'POST',
             data:{
-              account: res.code,
+              code: res.code,
               type: 100
             },
             success:res=>{
-              console.log(res.data)
+              console.log('res:', res)
               const code = res.statusCode.toString()
-              console.log('res',res.data.token)
+              console.log('token',res.data.token)
               if(code.startsWith('2')){
                 wx.setStorageSync('token',res.data.token)
               }

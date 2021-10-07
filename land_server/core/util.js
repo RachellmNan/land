@@ -34,6 +34,7 @@ const generateToken = (id, scope)=>{
     }, config.security.jwt_key, {
         expiresIn: config.security.expiresIn
     })
+    console.log('token', token)
     return token
 }
 

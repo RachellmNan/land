@@ -30,7 +30,7 @@ class Paging{
         console.log('noLocker')
         // 请求数据
         let http = new Http()
-        const paging = await http.request({
+        const paging = await http._request({
             url : this.url,
             data:{
                 q: this.q,

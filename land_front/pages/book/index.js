@@ -122,7 +122,6 @@ Page({
             })
             return
         }}
-        console.log('res1: ', res)
         // let bookModel = new BookModel()
         // let res = await bookModel.searchBook(searchValue)
         this.setData({

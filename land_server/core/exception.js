@@ -43,6 +43,15 @@ class ForbiddenError extends HttpException {
     }
 }
 
+class ExceedError extends HttpException{
+    constructor(msg, errorCode){
+        super()
+        this.status = 401
+        this.msg = msg || '授权失败'
+        this.errorCode = errorCode || 10007
+    }
+}
+
 class likeError extends HttpException {
     constructor(msg, errorCode) {
         super()
@@ -67,6 +76,7 @@ module.exports = {
     NotFound,
     AuthFailed,
     ForbiddenError,
+    ExceedError,
     likeError,
     DislikeError
 }

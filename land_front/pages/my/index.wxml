@@ -1,13 +1,22 @@
 <view class="container">
     <view class="top">
         <image src="/assets/imgs/like_bg.png"  style="width:100%;height:460rpx"/>
+        <view class="user-wrapper" wx:if="{{loginStatus}}">
+            <view class="avatar-wrapper">
+                <open-data type="userAvatarUrl" class="avatarurl" />
+            </view>
+            <open-data type="userNickName"  class="userNickName"/>
+        </view>
+        <view wx:if="{{!loginStatus}}" class="unlogin-wrapper" bind:tap="onLogin">
+            <text >点击登录</text>
+        </view>
     </view>
     <image class="like-top" src="/assets/imgs/liketag.png" />
     <scroll-view scroll-y style="height:{{scrollHeight}}rpx">
         <view class="content-wrapper">
             
-            <text bind:tap="login">登录</text>
-            <button open-type="getUserInfo" bindgetuserinfo="getuserinfo">登录二</button>
+            <!-- <text bind:tap="login">登录</text>
+            <button open-type="getUserInfo" bindgetuserinfo="getuserinfo">登录二</button> -->
             <m-likelist bind:likeStatus="likeStatus" list="{{favor}}"></m-likelist>
         </view>
     </scroll-view>
