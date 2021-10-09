@@ -2,7 +2,7 @@ const { ClassicModel } = require("../../models/classic")
 const { Like } = require("../../models/like")
 const { Storage } = require("../../models/storage")
 const { Http } = require("../../utils/http")
-const { getHeight, promisic } = require("../../utils/util")
+const { getHeight } = require("../../utils/util")
 
 // pages/my/index.js
 Page({
@@ -66,6 +66,11 @@ Page({
                 })
                 let token = tokenObj.token
                 Storage.setItem('token',token)
+                const classic = new ClassicModel()
+                const favor = await classic.getFavor()
+                this.setData({
+                    favor
+                })
             }
         })
         this.setData({

@@ -16,7 +16,7 @@
         "autoAudits": false,
         "showShadowRootInWxmlPanel": true,
         "scopeDataCheck": false,
-        "uglifyFileName": true,
+        "uglifyFileName": false,
         "checkInvalidKey": true,
         "checkSiteMap": true,
         "uploadWithSourceMap": true,
@@ -38,7 +38,7 @@
         "showES6CompileOption": false
     },
     "compileType": "miniprogram",
-    "libVersion": "2.19.5",
+    "libVersion": "2.19.6",
     "appid": "wxf58d7cd7ccd36bdc",
     "projectname": "land",
     "debugOptions": {

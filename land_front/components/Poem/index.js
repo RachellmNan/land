@@ -1,5 +1,4 @@
 const { Storage } = require("../../models/storage")
-const { promisic } = require("../../utils/util")
 
 // components/Poem/index.js
 Component({
