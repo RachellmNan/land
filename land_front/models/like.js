@@ -12,7 +12,7 @@ class Like extends Http{
         })
     }
     async dolikeBook(type, art_id){
-        return await this.request({
+        return await this._request({
             url: '/like',
             method: 'post',
             data:{
@@ -33,7 +33,7 @@ class Like extends Http{
         })
     }
     async cancelLikeBook(type, art_id){
-        return await this.request({
+        return await this._request({
             url: '/like/cancel',
             method:'post',
             data:{
@@ -51,7 +51,7 @@ class Like extends Http{
     }
 
     async getBookLikeCount(book_id){
-        return await this.request({
+        return await this._request({
             url: `/book/${book_id}/favor`
         })
     }
